@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <h1>Marvel Characters</h1>
+    
+    
+        <form #search="ngForm">
+            <input type="text"
+        required name='characterName' id='characterName'
+        placeholder="Search" aria-label="Search Characters" matInput (keyup)="findChar($event)">
+        
+        </form>
+      
+    
+        <div class="container-fluid mt-5" *ngIf="isnull">
+                        
+            <div class="row">
+              <div class="col-lg-3 mt-3 mb-3" *ngFor="let c of searchresult">
+                <div class="card">
+                    <mat-card>
+                        <img mat-card-image src="{{c.thumbnail.path + '/standard_medium.' + c.thumbnail.extension}}" height="200"  alt="{{c.name}}">                
+                        <mat-card-title>{{c.name}}</mat-card-title>
+                        <mat-card-actions>
+                            <button mat-raised-button type="button" color="accent" (click)="getComic(c.id)" >Comics</button>
+                            <button mat-raised-button type="button" color="accent"(click)="getSeries(c.id)">Series</button>
+                            <button mat-raised-button type="button" color="accent"(click)="getDetails(c.description)">Details</button>
+                          </mat-card-actions>
+                        </mat-card>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+
+                    <div class="container-fluid mt-5" *ngIf="!isnull">
+                        
+                        <div class="row">
+                          <div class="col-lg-3 mt-3 mb-3" *ngFor="let c of characters">
+                            <div class="card" >
+                                <mat-card tabindex="0">
+                                    <img mat-card-image src="{{c.thumbnail.path + '/standard_medium.' + c.thumbnail.extension}}" height="200"  alt="{{c.name}}" />                
+                                    <mat-card-title>{{c.name}}</mat-card-title>
+                                    <mat-card-actions>
+                                        <button mat-raised-button type="button" color="accent" (click)="getComic(c.id)" >Comics</button>
+                                        <button mat-raised-button type="button" color="accent"(click)="getSeries(c.id)">Series</button>
+                                        <button mat-raised-button type="button" color="accent"(click)="getDetails(c.description)">Details</button>
+                                    </mat-card-actions>
+                                    </mat-card>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <!-- <div class="row">
+                          <div
+                            class="col-lg-3 mt-3 mb-3"
+                            *ngFor="let c of characters"
+                          >
+                            <div class="card">
+                              <img src="{{c.thumbnail.path +'/standard_medium.'+c.thumbnail.extension}}" width="100%" class="card-img-top" alt="Some Issue Loading Image..." />
+                              <div class="card-body">
+                                <h5 class="card-title">{{ c.name }}</h5>
+                                <button type="button"  class="btn btn-outline-primary  mr-4" data-toggle="modal" data-target=".bd-example-modal-lg">Comics</button>
+                                <button type="button"  class="btn btn-outline-secondary" data-toggle="modal" data-target=".cd-example-modal-lg">Series</button>
+                      
+                              </div>
+                            </div>
+                      
+                      
+                      
+                      
+                          </div>
+                        </div> -->
+           
+
+                        
+                
+</body>
+</html>

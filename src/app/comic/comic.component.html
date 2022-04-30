@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <h1>Marvel Comics</h1>
+
+    <form #search="ngForm">
+      <input type="text"
+  required name='comicName' 
+  placeholder="Search Comics" aria-label="Search" matInput (keyup)="findComic($event)">
+  
+  </form>
+
+  <div class="container-fluid mt-5" *ngIf="isSearchnull">
+    <!-- *ngIf="!isnull" -->
+    <div class="row">
+      <div class="col-lg-3 mt-3 mb-3" *ngFor="let c of filterresult">
+        <div class="card">
+            <mat-card>
+                <img mat-card-image src="{{c.thumbnail.path + '/standard_medium.' + c.thumbnail.extension}}" height="200"  alt="{{c.name}}" />                
+                <mat-card-title>{{c.title}}</mat-card-title>
+                </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid mt-5" *ngIf="!isSearchnull">
+        <div class="row">
+          <div class="col-lg-3 mt-3 mb-3" *ngFor="let c of filterComics">
+            <div class="card">
+                <mat-card>
+                    <img mat-card-image src="{{c.thumbnail.path + '/standard_medium.' + c.thumbnail.extension}}" height="200"  alt="{{c.name}}" />                
+                    <mat-card-title>{{c.title}}</mat-card-title>
+                    </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+</html>

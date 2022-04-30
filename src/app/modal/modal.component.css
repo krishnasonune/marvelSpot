@@ -1,0 +1,18 @@
+
+mat-dialog-content{
+    max-width: 200vw;
+    color: darkgrey;
+}
+
+mat-card{
+    background:cornflowerblue;
+    max-width: 400px;
+}
+
+mat-card-title{
+    font-size: 1.2em;
+}
+
+.card{
+    margin: 0.3vw;
+}

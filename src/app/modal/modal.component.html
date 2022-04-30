@@ -1,0 +1,20 @@
+
+<mat-dialog-content >
+    <div class="container-fluid mt-5">
+                        
+        <div class="row">
+          <div class="col-lg-3 mt-3 mb-3" *ngFor="let c of data">
+            <div class="card">
+                <mat-card>
+                    <img mat-card-image src="{{c.thumbnail.path + '/standard_medium.' + c.thumbnail.extension}}" height="200"  alt="{{c.name}}" />                
+                    <mat-card-title>{{c.title}}</mat-card-title>
+                    </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

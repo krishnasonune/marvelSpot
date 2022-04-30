@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <h1>Marvel Series</h1>
+
+    <form #search="ngForm">
+      <input type="text"
+  required name='seriesName' id='seriesName'
+  placeholder="Search Series" aria-label="Search Characters" matInput (keyup)="findSeries($event)">
+  
+  </form>
+
+
+
+  <div class="container-fluid mt-5" *ngIf="isSeriesNull">   
+                        
+    <div class="row" >
+      <div class="col-lg-3 mt-3 mb-3" *ngFor="let c of filterResult">
+        <div class="card">
+            <mat-card>
+                <img mat-card-image src="{{c.thumbnail.path + '/standard_medium.' + c.thumbnail.extension}}" height="200"  alt="{{c.name}}" />                
+                <mat-card-title>{{c.title}}</mat-card-title>
+                <!-- <mat-card-actions>
+                    <button mat-raised-button type="button" color="accent" (click)="getComic(c.id)" >Comics</button>
+                    <button mat-raised-button type="button" color="accent"(click)="getSeries(c.id)">Series</button>
+                    <button mat-raised-button type="button" color="accent"(click)="getDetails(c.description)">Details</button>
+                </mat-card-actions> -->
+                </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid mt-5" *ngIf="!isSeriesNull">
+                        
+        <div class="row">
+          <div class="col-lg-3 mt-3 mb-3" *ngFor="let c of filterAllseries">
+            <div class="card">
+                <mat-card>
+                    <img mat-card-image src="{{c.thumbnail.path + '/standard_medium.' + c.thumbnail.extension}}" height="200"  alt="{{c.name}}" />                
+                    <mat-card-title>{{c.title}}</mat-card-title>
+                    <!-- <mat-card-actions>
+                        <button mat-raised-button type="button" color="accent" (click)="getComic(c.id)" >Comics</button>
+                        <button mat-raised-button type="button" color="accent"(click)="getSeries(c.id)">Series</button>
+                        <button mat-raised-button type="button" color="accent"(click)="getDetails(c.description)">Details</button>
+                    </mat-card-actions> -->
+                    </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+mat-toolbar{
+    width: 100%;
+}
+
+a{
+    margin: 1vh;
+}
+
+span{
+    font-size: 1.5em;
+}
+
+.alignNav{
+    flex: 1 1 auto;
+}
